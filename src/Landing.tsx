@@ -212,8 +212,11 @@ export default function Landing() {
         }}
       >
         <div style={{ maxWidth: 1280, margin: '0 auto', height: 64, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 24px', gap: 24 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 2, fontSize: 19, fontWeight: 600, color: '#122B45', whiteSpace: 'nowrap' }}>
-            Talent Growth Readiness <span style={{ color: '#2A9D8F' }}>Hub</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, minWidth: 0 }}>
+            <img src="/logo-icon.png" alt="Authentic Talent Edge" style={{ height: isDesktop ? 38 : 30, width: 'auto', flexShrink: 0 }} />
+            <span style={{ fontSize: isDesktop ? 19 : 14, fontWeight: 600, color: '#122B45', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+              Talent Growth Readiness <span style={{ color: '#2A9D8F' }}>Hub</span>
+            </span>
           </div>
           <nav style={{ display: isDesktop ? 'flex' : 'none', gap: 32, alignItems: 'center' }}>
             <a href="#how-it-works" style={{ color: '#122B45', fontWeight: 500, fontSize: 15, position: 'relative' }}>How It Works</a>

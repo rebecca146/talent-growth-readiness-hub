@@ -132,6 +132,15 @@ export default function Assessment() {
     setSaveWarning(!!error);
     setPhase('results');
     loadResourceLinks(DIMENSIONS);
+
+    supabase.functions.invoke('notify-lead', {
+      body: {
+        name: name.trim(),
+        email: email.trim(),
+        overallScore,
+        dimensionScores,
+      },
+    });
   };
 
   const progressPct = Math.round((questionIndex / QUESTIONS.length) * 100);
@@ -140,8 +149,11 @@ export default function Assessment() {
   return (
     <div style={{ minHeight: '100vh', background: '#F5F7FA' }}>
       <header style={{ padding: '20px 24px', maxWidth: 720, margin: '0 auto' }}>
-        <Link to="/" style={{ display: 'inline-flex', alignItems: 'center', gap: 2, fontSize: 17, fontWeight: 600, color: '#122B45' }}>
-          Talent Growth Readiness <span style={{ color: '#2A9D8F' }}>Hub</span>
+        <Link to="/" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, fontSize: 17, fontWeight: 600, color: '#122B45' }}>
+          <img src="/logo-icon.png" alt="Authentic Talent Edge" style={{ height: 32, width: 'auto' }} />
+          <span>
+            Talent Growth Readiness <span style={{ color: '#2A9D8F' }}>Hub</span>
+          </span>
         </Link>
       </header>
 
@@ -337,7 +349,9 @@ export default function Assessment() {
                 Book a free consultation to talk through your results with Authentic Talent Edge.
               </p>
               <a
-                href={`mailto:hello@authentictalentedge.com?subject=Talent Readiness follow-up&body=Hi, I just took the assessment and scored ${overallScore}/100. I'd like to talk through my results.`}
+                href="https://calendly.com/rebecca-authentictalentedge/30min"
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{ ...ctaButtonStyle, background: '#0B2545', display: 'inline-block' }}
               >
                 Book a Consultation
