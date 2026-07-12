@@ -21,7 +21,7 @@ export const QUESTIONS: Question[] = [
     dimension: 'ownership',
     text: 'When a role opens up, who runs the hiring process from start to finish?',
     options: [
-      { label: 'No one specific — whoever has time', score: 0 },
+      { label: 'No one specific, whoever has time', score: 0 },
       { label: 'Me, personally, every time', score: 33 },
       { label: 'A manager, but inconsistently', score: 67 },
       { label: 'A named owner with backup coverage', score: 100 },
@@ -253,6 +253,7 @@ export interface Recommendation {
   tag: 'Self-Service' | 'Consultation' | 'Advisory';
   title: string;
   body: string;
+  query: string;
 }
 
 export const RECOMMENDATIONS: Record<Dimension, Record<Tier, Recommendation>> = {
@@ -260,17 +261,20 @@ export const RECOMMENDATIONS: Record<Dimension, Record<Tier, Recommendation>> = 
     critical: {
       tag: 'Self-Service',
       title: 'No One Owns This Yet',
-      body: "Every open role becomes a fire drill because there's no single owner accountable for it start to finish. Name one person — even part-time — who owns hiring for each department.",
+      body: "Every open role becomes a fire drill because there's no single owner accountable for it start to finish. Name one person, even part-time, who owns hiring for each department.",
+      query: 'how to assign a hiring process owner small business',
     },
     developing: {
       tag: 'Self-Service',
       title: "Ownership Exists, But It's Fragile",
       body: 'Someone owns hiring, but it collapses under vacation or turnover. Document the role clearly enough that a backup could step in this week.',
+      query: 'backup hiring manager documentation template',
     },
     strong: {
       tag: 'Consultation',
-      title: 'Ownership Is Solid — Now Make It Resilient',
+      title: 'Ownership Is Solid, Now Make It Resilient',
       body: "Hiring runs without you in the room. The next step is cross-training a second owner so one person leaving doesn't reopen the gap.",
+      query: 'cross training hiring manager backup best practices',
     },
   },
   process: {
@@ -278,16 +282,19 @@ export const RECOMMENDATIONS: Record<Dimension, Record<Tier, Recommendation>> = 
       tag: 'Self-Service',
       title: 'Every Interview Is Improvised',
       body: "Without a scorecard or standard questions, you're comparing gut feelings, not candidates. Build one job scorecard for your highest-volume role this month.",
+      query: 'free interview scorecard template',
     },
     developing: {
       tag: 'Self-Service',
-      title: "You Have a Process — It's Just Optional",
+      title: "You Have a Process, It's Just Optional",
       body: 'Structure exists but is inconsistently used. Make the scorecard and interview guide mandatory, not a suggestion.',
+      query: 'standardizing interview process for hiring managers',
     },
     strong: {
       tag: 'Consultation',
-      title: 'Process Is Working — Time to Scale It',
+      title: 'Process Is Working, Time to Scale It',
       body: "Your structure holds up for the roles you've built it for. Extend it to every open role and train new managers on it directly.",
+      query: 'scaling structured hiring process to more roles',
     },
   },
   onboarding: {
@@ -295,16 +302,19 @@ export const RECOMMENDATIONS: Record<Dimension, Record<Tier, Recommendation>> = 
       tag: 'Self-Service',
       title: 'Onboarding Is a Coin Flip',
       body: 'New hires are quitting because ramp-up is a shrug and a laptop. A written 30/60/90 plan for your highest-turnover role is the fastest fix available.',
+      query: 'free 30 60 90 day onboarding plan template',
     },
     developing: {
       tag: 'Self-Service',
       title: "Onboarding Exists, But It's Inconsistent",
       body: "Some new hires get support, others don't. Standardize the plan so it doesn't depend on which manager they land with.",
+      query: 'standardizing new hire onboarding across managers',
     },
     strong: {
       tag: 'Consultation',
-      title: 'Onboarding Is Working — Protect It',
+      title: 'Onboarding Is Working, Protect It',
       body: 'Retention in the first 90 days is strong. Document what works so it survives a change in who trains new hires.',
+      query: 'documenting onboarding process knowledge transfer',
     },
   },
   metrics: {
@@ -312,16 +322,19 @@ export const RECOMMENDATIONS: Record<Dimension, Record<Tier, Recommendation>> = 
       tag: 'Self-Service',
       title: "You're Flying Blind",
       body: "You can't fix what you can't see. Start tracking time-to-fill and 90-day turnover for every hire, starting with your next one.",
+      query: 'how to track time to fill and turnover metrics free template',
     },
     developing: {
       tag: 'Self-Service',
       title: 'You Have Some Numbers, Not a System',
       body: "You can estimate your metrics but can't produce them on demand. Build one simple dashboard you update monthly.",
+      query: 'free hiring metrics dashboard template',
     },
     strong: {
       tag: 'Advisory',
-      title: 'Metrics Are Solid — Make Them Actionable',
+      title: 'Metrics Are Solid, Make Them Actionable',
       body: 'You can report your numbers. The next step is using them to catch problems before they hit the board deck.',
+      query: 'using hiring metrics to prevent turnover proactively',
     },
   },
 };

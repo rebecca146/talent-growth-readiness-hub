@@ -24,7 +24,7 @@ const PAIN_CARDS = [
 const STEPS_BASE = [
   { n: 1, title: 'Assess', body: 'Take the free 15-minute Readiness Assessment across the four dimensions that predict hiring success: ownership, process, onboarding, and metrics.', flag: false },
   { n: 2, title: 'Get Your Roadmap', body: 'Receive a scored report with personalized, prioritized recommendations, instantly. No waiting, no gatekeeping.', flag: false },
-  { n: 3, title: 'Fix What You Can', body: 'Free self-service resources — templates, interview guides, scorecards, for every gap you can close yourself.', flag: false },
+  { n: 3, title: 'Fix What You Can', body: 'Free self-service resources: templates, interview guides, scorecards, for every gap you can close yourself.', flag: false },
   { n: 4, title: 'Get Expert Help When You Want It', body: "For the gaps you can't close alone: expert consultation, done-with-you projects, and fractional advisory support. We build the system, train your people, and stay until it's adopted.", flag: true },
 ];
 
@@ -34,7 +34,7 @@ const BENEFITS = [
   { lead: 'Your time back', body: 'A path out of final interviews, midnight resume reviews, and fire drills.' },
   { lead: 'A hiring process managers actually follow', body: 'Structured tools your team can run without you.' },
   { lead: 'Board-ready data', body: 'Walk into your next meeting with retention numbers instead of excuses.' },
-  { lead: 'A partner who stays', body: 'If you want help, you get accountability through adoption — not a deck and a disappearing act.' },
+  { lead: 'A partner who stays', body: 'If you want help, you get accountability through adoption, not a deck and a disappearing act.' },
 ];
 
 const SHOWCASE_CAPTIONS = ['Answer 20 operator-level questions', 'Get your score across 4 dimensions', 'Follow your prioritized roadmap'];
@@ -46,7 +46,7 @@ const TESTIMONIALS = [
 ];
 
 const FAQS = [
-  { q: 'Is the assessment really free?', a: "Yes. The assessment, your score, your recommendations, and the self-service resources are free — no credit card, no trial clock. Paid options exist only if you want expert help implementing, and we'll always tell you plainly where free ends and paid begins." },
+  { q: 'Is the assessment really free?', a: "Yes. The assessment, your score, your recommendations, and the self-service resources are free, no credit card, no trial clock. Paid options exist only if you want expert help implementing, and we'll always tell you plainly where free ends and paid begins." },
   { q: 'Will I get a sales call after I take it?', a: "No. Your results arrive instantly on screen. If you want to talk to an expert, you book it. We don't chase." },
   { q: 'How long does it take?', a: 'About 15 minutes. Built for operators, every question is one you can answer off the top of your head.' },
   { q: 'Who is this for?', a: 'Founders, CEOs, and COOs at companies with roughly 30-150 employees who are still personally stuck in hiring. Especially strong fit for behavioral health, healthcare, construction and homebuilding, and sales-driven teams.' },

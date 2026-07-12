@@ -13,6 +13,14 @@ type Phase = 'intro' | 'question' | 'contact' | 'results';
 
 const DIMENSIONS: Dimension[] = ['ownership', 'process', 'onboarding', 'metrics'];
 
+interface ResourceLink {
+  title: string;
+  url: string;
+  description: string;
+}
+
+type ResourceLinksState = ResourceLink[] | 'loading' | 'error';
+
 function average(nums: number[]) {
   return Math.round(nums.reduce((a, b) => a + b, 0) / nums.length);
 }
@@ -50,6 +58,7 @@ export default function Assessment() {
   const [contactError, setContactError] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [saveWarning, setSaveWarning] = useState(false);
+  const [resourceLinks, setResourceLinks] = useState<Partial<Record<Dimension, ResourceLinksState>>>({});
 
   const question = QUESTIONS[questionIndex];
   const selectedScore = answers[question?.id];
@@ -84,6 +93,19 @@ export default function Assessment() {
     }
   };
 
+  const loadResourceLinks = (dims: Dimension[]) => {
+    setResourceLinks(Object.fromEntries(dims.map((dim) => [dim, 'loading'])) as Record<Dimension, ResourceLinksState>);
+    dims.forEach(async (dim) => {
+      const tier = tierForScore(dimensionScores[dim]);
+      const query = RECOMMENDATIONS[dim][tier].query;
+      const { data, error } = await supabase.functions.invoke('resource-links', { body: { query } });
+      setResourceLinks((prev) => ({
+        ...prev,
+        [dim]: error ? 'error' : (data?.results ?? []),
+      }));
+    });
+  };
+
   const submitContact = async (e: FormEvent) => {
     e.preventDefault();
     if (!name.trim()) {
@@ -109,6 +131,7 @@ export default function Assessment() {
     setSubmitting(false);
     setSaveWarning(!!error);
     setPhase('results');
+    loadResourceLinks(DIMENSIONS);
   };
 
   const progressPct = Math.round((questionIndex / QUESTIONS.length) * 100);
@@ -132,7 +155,7 @@ export default function Assessment() {
               Let's find out what's really broken.
             </h1>
             <p style={{ fontSize: 16, color: '#5A6B7B', lineHeight: 1.6, margin: '0 0 32px' }}>
-              20 quick questions across ownership, process, onboarding, and metrics. Answer honestly — your score and roadmap appear instantly, no waiting, no sales call.
+              20 quick questions across ownership, process, onboarding, and metrics. Answer honestly: your score and roadmap appear instantly, no waiting, no sales call.
             </p>
             <button onClick={() => setPhase('question')} style={ctaButtonStyle}>
               Start the Assessment
@@ -299,7 +322,8 @@ export default function Assessment() {
                       </span>
                     </div>
                     <h3 style={{ fontSize: 17, color: '#122B45', fontWeight: 600, margin: '0 0 8px' }}>{rec.title}</h3>
-                    <p style={{ fontSize: 14.5, color: '#5A6B7B', lineHeight: 1.6, margin: 0 }}>{rec.body}</p>
+                    <p style={{ fontSize: 14.5, color: '#5A6B7B', lineHeight: 1.6, margin: '0 0 16px' }}>{rec.body}</p>
+                    <ResourceLinksList state={resourceLinks[dim]} />
                   </div>
                 );
               })}
@@ -342,3 +366,30 @@ const inputStyle: CSSProperties = {
   outline: 'none',
   minHeight: 44,
 };
+
+function ResourceLinksList({ state }: { state: ResourceLinksState | undefined }) {
+  if (!state || state === 'loading') {
+    return <div style={{ fontSize: 13, color: '#5A6B7B' }}>Finding free resources...</div>;
+  }
+  if (state === 'error' || state.length === 0) {
+    return null;
+  }
+  return (
+    <div style={{ borderTop: '1px solid #F5F7FA', paddingTop: 14, display: 'flex', flexDirection: 'column', gap: 8 }}>
+      <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: 0.5, textTransform: 'uppercase', color: '#5A6B7B' }}>
+        Free resources
+      </div>
+      {state.map((link) => (
+        <a
+          key={link.url}
+          href={link.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ fontSize: 13.5, color: '#1C6E8C', fontWeight: 500, lineHeight: 1.4 }}
+        >
+          {link.title}
+        </a>
+      ))}
+    </div>
+  );
+}
