@@ -584,17 +584,17 @@ export default function Landing() {
           <div>
             <div style={{ fontSize: 13, color: '#8A97A6', fontWeight: 600, textTransform: 'uppercase', letterSpacing: 0.5, marginBottom: 16 }}>Connect</div>
             <div style={{ display: 'flex', gap: 14, marginBottom: 16 }}>
-              <a href="#" aria-label="LinkedIn" style={{ width: 44, height: 44, borderRadius: 8, background: 'rgba(255,255,255,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <a href="https://www.linkedin.com/company/authentic-talent-edge" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" style={{ width: 44, height: 44, borderRadius: 8, background: 'rgba(255,255,255,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="#F5F7FA"><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /><path d="M10 9h4v2c1-1.5 2.5-2.3 4.5-2.3 3.5 0 5.5 2.3 5.5 6.3V21h-4v-5.5c0-1.8-.7-3-2.4-3-1.3 0-2.1.9-2.4 1.8-.1.3-.2.7-.2 1.2V21h-4z" /></svg>
               </a>
-              <a href="#" aria-label="Instagram" style={{ width: 44, height: 44, borderRadius: 8, background: 'rgba(255,255,255,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <a href="https://www.instagram.com/authentic_talent_edge" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style={{ width: 44, height: 44, borderRadius: 8, background: 'rgba(255,255,255,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5F7FA" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" /></svg>
               </a>
-              <a href="#" aria-label="Facebook" style={{ width: 44, height: 44, borderRadius: 8, background: 'rgba(255,255,255,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <a href="https://www.facebook.com/profile.php?id=61587340228153" target="_blank" rel="noopener noreferrer" aria-label="Facebook" style={{ width: 44, height: 44, borderRadius: 8, background: 'rgba(255,255,255,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="#F5F7FA"><path d="M14 21v-8h3l.5-4H14V7c0-1.2.3-2 2-2h1.6V1.4C17.2 1.3 16 1.2 14.7 1.2 11.9 1.2 10 2.9 10 6v3H7v4h3v8z" /></svg>
               </a>
             </div>
-            <a href="mailto:hello@authentictalentedge.com" style={{ color: '#8A97A6', fontSize: 14 }}>hello@authentictalentedge.com</a>
+            <a href="mailto:info@authentictalentedge.com" style={{ color: '#8A97A6', fontSize: 14 }}>info@authentictalentedge.com</a>
           </div>
         </div>
         <div style={{ maxWidth: 1200, margin: '48px auto 0', paddingTop: 24, borderTop: '1px solid rgba(255,255,255,0.08)', display: 'flex', flexWrap: 'wrap', gap: 16, justifyContent: 'space-between', fontSize: 13, color: '#8A97A6' }}>

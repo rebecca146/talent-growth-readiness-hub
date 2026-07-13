@@ -271,7 +271,7 @@ export default function Assessment() {
             {saveWarning && (
               <div style={{ background: '#FEF3C7', border: '1px solid #F4A261', borderRadius: 10, padding: '12px 16px', fontSize: 13, color: '#92400E', marginBottom: 20 }}>
                 Your results are shown below, but we couldn't save them on our end. If you want a copy emailed to you, reach out at{' '}
-                <a href="mailto:hello@authentictalentedge.com" style={{ color: '#92400E', fontWeight: 600 }}>hello@authentictalentedge.com</a>.
+                <a href="mailto:info@authentictalentedge.com" style={{ color: '#92400E', fontWeight: 600 }}>info@authentictalentedge.com</a>.
               </div>
             )}
 
