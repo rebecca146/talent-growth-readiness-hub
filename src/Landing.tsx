@@ -468,11 +468,16 @@ export default function Landing() {
           <p style={{ fontSize: 16, color: '#5A6B7B', margin: '0 0 48px' }}>Two minutes inside the Hub: the assessment, your readiness dashboard, and the roadmap it builds for you.</p>
         </div>
         <div style={{ maxWidth: 800, margin: '0 auto' }}>
-          <div style={{ background: 'repeating-linear-gradient(135deg,#F5F7FA,#F5F7FA 10px,#EBEEF2 10px,#EBEEF2 20px)', borderRadius: 16, aspectRatio: '16/9', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
-            <button aria-label="Play video" style={{ width: 64, height: 64, borderRadius: '50%', background: 'rgba(11,37,69,0.85)', border: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
-              <div style={{ width: 0, height: 0, borderTop: '12px solid transparent', borderBottom: '12px solid transparent', borderLeft: '18px solid #fff', marginLeft: 4 }} />
-            </button>
-            <div style={{ position: 'absolute', bottom: 16, left: 16, fontSize: 12, color: '#5A6B7B', fontFamily: 'monospace' }}>product walkthrough video, 16:9</div>
+          <div style={{ borderRadius: 16, aspectRatio: '16/9', overflow: 'hidden', boxShadow: '0 24px 60px rgba(11,37,69,0.18)', border: '1px solid #F5F7FA' }}>
+            <video
+              src="/assessment-walkthrough.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              aria-label="Product walkthrough: taking the assessment and seeing your score and roadmap"
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            />
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: isTablet ? 'repeat(3,1fr)' : '1fr', gap: 16, marginTop: 24 }}>
             {SHOWCASE_CAPTIONS.map((cap) => (
